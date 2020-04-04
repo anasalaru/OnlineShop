@@ -16,9 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BookActivity"
+        <activity
+            android:name=".BookActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="unspecified"/>
+            android:screenOrientation="unspecified" />
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".SettingsActivity" />
     </application>
 
 </manifest>
