@@ -16,9 +16,9 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:background="@color/colorPrimary"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/book_title"
@@ -70,15 +70,34 @@
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel bibendum tellus. Nunc aliquet lacus libero, sit amet gravida elit rutrum eget. Pellentesque eu arcu elementum felis dictum laoreet et eu turpis. In hac habitasse platea dictumst. Proin sollicitudin tempor elit sed pretium. Mauris condimentum consectetur vestibulum. Maecenas blandit finibus erat, eu faucibus arcu vulputate molestie. Mauris volutpat eros diam, accumsan auctor felis vestibulum eget. Proin id aliquet dolor. Maecenas non magna pellentesque, vulputate mauris eget, viverra erat. Mauris id nunc porttitor, luctus purus non, sollicitudin tortor. Mauris sollicitudin molestie lacus. Ut vel enim tincidunt, mollis justo in, luctus massa. Morbi tellus mi, maximus et lacus eu, fringilla vehicula sem. Curabitur vulputate eget eros eu semper." />
 
         <Button
+            android:id="@+id/add_to_cart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
             android:text="Add to cart"
             android:textAllCaps="true"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <Button
+            android:id="@+id/add_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Write a review"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_to_cart" />
+
+        <ListView
+            android:id="@+id/reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/add_review" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

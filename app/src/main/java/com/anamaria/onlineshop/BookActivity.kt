@@ -1,11 +1,14 @@
 package com.anamaria.onlineshop
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_book.*
 
@@ -30,6 +33,10 @@ class BookActivity : AppCompatActivity() {
         description.text = item.description
 
         title = item.title
+
+        add_review.setOnClickListener {
+            openReviewDialog()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -91,5 +98,21 @@ class BookActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_book_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun openReviewDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_add_review, null)
+        AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setPositiveButton("Submit") { d, _ -> submitReview(d) }
+            .setNegativeButton("Cancel") { d, _ -> d.dismiss() }
+            .create()
+            .show()
+
+    }
+
+    private fun submitReview(dialog: DialogInterface) {
+        dialog.dismiss()
+        Toast.makeText(this, "Review submitted successfully.", Toast.LENGTH_SHORT).show()
     }
 }
