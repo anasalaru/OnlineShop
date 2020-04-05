@@ -3,13 +3,14 @@ package com.anamaria.onlineshop
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.anamaria.onlineshop.SettingsActivity.Companion.REGION_USA
 import kotlinx.android.synthetic.main.activity_book.*
 
 class BookActivity : AppCompatActivity() {
@@ -28,7 +29,9 @@ class BookActivity : AppCompatActivity() {
 
         author.text = item.author
         book_title.text = item.title
-        price.text = "${item.price} $"
+
+        val currency = if (getRegion() == REGION_USA) "$" else "€"
+        price.text = "${item.price} $currency"
         rating.text = "Rating: ${item.rating}"
         description.text = item.description
 
@@ -72,28 +75,15 @@ class BookActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.d(TAG, "onStart")
+
+        val currency = if (getRegion() == REGION_USA) "$" else "€"
+
+        price.text = "${item.price} $currency"
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy")
-    }
+    private fun getRegion(): String =
+        PreferenceManager.getDefaultSharedPreferences(applicationContext)
+            .getString(SettingsActivity.REGION, SettingsActivity.REGION_USA)!!
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_book_menu, menu)

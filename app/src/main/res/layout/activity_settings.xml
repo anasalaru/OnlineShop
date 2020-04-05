@@ -10,19 +10,34 @@
         android:id="@+id/dark_mode_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Dark Mode"
-        app:layout_constraintEnd_toStartOf="@id/dark_mode_switch"
+        android:text="Your region"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/dark_mode_switch"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/radio_country"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/dark_mode_text"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/dark_mode_text"
-        app:layout_constraintTop_toTopOf="@id/dark_mode_text" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dark_mode_text">
+
+        <RadioButton
+            android:id="@+id/usa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USA" />
+
+        <RadioButton
+            android:id="@+id/europe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Europe" />
+
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
