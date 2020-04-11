@@ -23,6 +23,10 @@
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".SettingsActivity" />
+
+        <activity
+            android:name=".MyAccountActivity"
+            android:parentActivityName=".SettingsActivity" />
     </application>
 
 </manifest>
