@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.anamaria.onlineshop.SettingsActivity.Companion.REGION_USA
+import com.anamaria.onlineshop.data.Book
+import com.anamaria.onlineshop.data.BooksApiService
 import kotlinx.android.synthetic.main.activity_book.*
 
 class BookActivity : AppCompatActivity() {
@@ -25,6 +27,7 @@ class BookActivity : AppCompatActivity() {
 
         bookId = intent.getStringExtra("bookId")
 
+        val items = BooksApiService.getBooks()
         item = items.find { it.id == bookId }!!
 
         author.text = item.author

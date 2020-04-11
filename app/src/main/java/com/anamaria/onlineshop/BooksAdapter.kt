@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.anamaria.onlineshop.SettingsActivity.Companion.REGION_USA
+import com.anamaria.onlineshop.data.Book
 import kotlinx.android.synthetic.main.item_book.view.*
 
 class BooksAdapter(
