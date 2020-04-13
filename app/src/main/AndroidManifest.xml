@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anamaria.onlineshop">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
+        android:name=".OnlineShopApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,6 +30,17 @@
         <activity
             android:name=".MyAccountActivity"
             android:parentActivityName=".SettingsActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.anamaria.onlineshop.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            xmlns:tools="http://schemas.android.com/tools">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>
