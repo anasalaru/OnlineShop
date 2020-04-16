@@ -36,8 +36,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == R.id.settings) {
-            openSettings()
+        when (item?.itemId) {
+            R.id.account -> openMyAccount()
+            R.id.settings -> openSettings()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -50,4 +51,8 @@ class MainActivity : AppCompatActivity() {
     private fun getRegion(): String =
         PreferenceManager.getDefaultSharedPreferences(applicationContext)
             .getString(SettingsActivity.REGION, REGION_USA)!!
+
+    private fun openMyAccount() {
+        startActivity(Intent(this, MyAccountActivity::class.java))
+    }
 }
